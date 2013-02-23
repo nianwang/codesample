@@ -4,5 +4,8 @@
     "license": "GPL-3.0+",
     "require": {
         "slim/slim": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "Sample": "lib/" }
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 require_once '../vendor/autoload.php';
-require_once '../lib/graphics.php';
 
 $app = new \Slim\Slim(array(
     'templates.path' => '../templates',
