@@ -8,6 +8,10 @@
 		<link rel="stylesheet" href="css/sample.css" type="text/css" />
 	</head>
 	<body>
+        <h1>Code Sample</h1>
+
+        <p>Use of Slim micro-framework, Composer, autoloading, namespaces, image manipulation, and other goodies.</p>
+
         <figure alt="The Creative Difference (original)">
             <figcaption>Original PNG image</figcaption>
             <small>(By <a rel="author" href="http://ollymoss.com">Olly Moss</a>)</small>
