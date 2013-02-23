@@ -1,4 +1,7 @@
 {
+    "name": "nian/example",
+    "description": "A code sample from Nian Wang",
+    "license": "GPL-3.0+",
     "require": {
         "slim/slim": "2.*"
     }
