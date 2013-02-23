@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Graphics utility functions to properly rotate images.
+ * Graphics utility functions to rotate images.
  */
 
 namespace Sample;
@@ -47,9 +47,9 @@ class Graphics
         // get image dimensions
         $orig_width = imagesx($this->_data);
         $orig_height = imagesy($this->_data);
-        // adjust dimensions; retain aspect ratio
         $ratio = $orig_width / $orig_height;
 
+        // adjust dimensions; retain aspect ratio
         $x = 0;
         $y = 0;
         $crop_width = $orig_width;
@@ -84,14 +84,12 @@ class Graphics
         // get image dimensions
         $orig_width = imagesx($this->_data);
         $orig_height = imagesy($this->_data);
-        // adjust dimensions; retain aspect ratio
         $ratio = $orig_width / $orig_height;
 
+        // adjust dimensions; retain aspect ratio
         if ($width <= $orig_width && $height >=$width / $ratio) {
-            // adjust height
             $height = $width / $ratio;
         } elseif ($height <= $orig_height && $width >= $height * $ratio) {
-            // adjust width
             $width = $height * $ratio;
         } else {
             // retain size if dimensions exceed original image
@@ -147,6 +145,8 @@ class Graphics
             default:
                 break;
             }
+
+            // now actually rotate or flip as needed
             if ($rotate) {
                 $this->_data = imagerotate($this->_data, $rotate, 0);
             }
