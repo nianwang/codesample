@@ -22,7 +22,7 @@ $app->get(
 
 $app->get(
     '/crop/:image(/:width/:height)', 
-    function ($image, $width = 400, $height = 400) use ($app) {
+    function ($image, $width = 200, $height = 200) use ($app) {
         $filepath = './images/' . $image;
 
         $graphics = new \Sample\Graphics($filepath);
@@ -38,7 +38,7 @@ $app->get(
 
 $app->get(
     '/thumb/:image(/:width/:height)', 
-    function ($image, $width = 400, $height = 400) use ($app) {
+    function ($image, $width = 200, $height = 200) use ($app) {
         $filepath = './images/' . $image;
 
         $graphics = new \Sample\Graphics($filepath);

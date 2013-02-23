@@ -22,7 +22,7 @@
         <figure alt="The Creative Difference (Orientation: <?php echo $i; ?>)">
             <figcaption>JPG image (orientation <?php echo $i; ?>)</figcaption>
             <img src="thumb/thedifference_<?php echo $i; ?>.jpg/353/353" alt="" />
-            <img src="crop/thedifference_<?php echo $i; ?>.jpg/200/200" alt="" />
+            <img src="crop/thedifference_<?php echo $i; ?>.jpg" alt="" />
         </figure>
 <?php endfor; ?>
 
