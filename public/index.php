@@ -24,14 +24,15 @@ $app->get(
     '/crop/:image(/:width/:height)', 
     function ($image, $width = 400, $height = 400) use ($app) {
         $filepath = './images/' . $image;
-        if (!file_exists($filepath)) {
-            $app->notFound();
-        }
-        $img = new \Sample\Graphics($filepath);
 
-        header('Content-Type: image/png');
-        echo $img->crop($width, $height);
-        exit;
+        $graphics = new \Sample\Graphics($filepath);
+        if ($image = $graphics->crop($width, $height)) {
+            // only prepare output if we have a good op
+            header('Content-Type: image/png');
+            echo $image;
+            exit;
+        }
+        $app->notFound();
     }
 );
 
@@ -39,14 +40,15 @@ $app->get(
     '/thumb/:image(/:width/:height)', 
     function ($image, $width = 400, $height = 400) use ($app) {
         $filepath = './images/' . $image;
-        if (!file_exists($filepath)) {
-            $app->notFound();
-        }
-        $img = new \Sample\Graphics($filepath);
 
-        header('Content-Type: image/png');
-        echo $img->thumb($width, $height);
-        exit;
+        $graphics = new \Sample\Graphics($filepath);
+        if ($image = $graphics->thumb($width, $height)) {
+            // only prepare output if we have a good op
+            header('Content-Type: image/png');
+            echo $image;
+            exit;
+        }
+        $app->notFound();
     }
 );
 

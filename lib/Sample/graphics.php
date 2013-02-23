@@ -22,11 +22,12 @@ class Graphics
     public function __construct($filepath) 
     {
         if (file_exists($filepath)) {
-            $this->_file = $filepath;
             $file = file_get_contents($filepath);
-
-            $this->_data = imagecreatefromstring($file);
-            imagesavealpha($this->_data, true);
+            if ($this->_data = @imagecreatefromstring($file)) {
+                // update internal info, force alpha channel support
+                $this->_file = $filepath;
+                imagesavealpha($this->_data, true);
+            }
         }
     }
 
@@ -108,65 +109,67 @@ class Graphics
      */
     private function _orient()
     {
-        if ($exif = @exif_read_data($this->_file)) {
-            $o = (isset($exif['Orientation'])) ? $exif['Orientation'] : 0;
-            $rotate = 0;
-            $flip = false;
-            switch ($o) {
-            case 2: 
-                $rotate = 0; 
-                $flip = true; 
-                break;
-            case 3: 
-                $rotate = 180;
-                $flip = false;
-                break;
-            case 4: 
-                $rotate = 180;
-                $flip = true;
-                break;
-            case 5: 
-                $rotate = 270;
-                $flip = true;
-                break;
-            case 6: 
-                $rotate = 270;
-                $flip = false;
-                break;
-            case 7: 
-                $rotate = 90;
-                $flip = true;
-                break;
-            case 8: 
-                $rotate = 90;
-                $flip = false;
-                break;
-            case 1:
-            default:
-                break;
-            }
-
-            // now actually rotate or flip as needed
-            if ($rotate) {
-                $this->_data = imagerotate($this->_data, $rotate, 0);
-            }
-            if ($flip) {
-                $width = imagesx($this->_data);
-                $height = imagesy($this->_data);
-
-                $tmp = imagecreatetruecolor($width, $height);
-                imagesavealpha($tmp, true);
-                imagefill($tmp, 0, 0, IMG_COLOR_TRANSPARENT);
-                imagecopyresampled(
-                    $tmp, $this->_data, 
-                    0, 0, $width - 1, 0, 
-                    $width, $height, -$width, $height
-                );
-                imagedestroy($this->_data);
-                $this->_data = $tmp;
-            }
+        if (!($exif = @exif_read_data($this->_file))) {
+            // there was a problem ... we should probably log here
+            return;
         }
 
+        $o = (isset($exif['Orientation'])) ? $exif['Orientation'] : 0;
+        $rotate = 0;
+        $flip = false;
+        switch ($o) {
+        case 2: 
+            $rotate = 0; 
+            $flip = true; 
+            break;
+        case 3: 
+            $rotate = 180;
+            $flip = false;
+            break;
+        case 4: 
+            $rotate = 180;
+            $flip = true;
+            break;
+        case 5: 
+            $rotate = 270;
+            $flip = true;
+            break;
+        case 6: 
+            $rotate = 270;
+            $flip = false;
+            break;
+        case 7: 
+            $rotate = 90;
+            $flip = true;
+            break;
+        case 8: 
+            $rotate = 90;
+            $flip = false;
+            break;
+        case 1:
+        default:
+            break;
+        }
+
+        // now actually rotate or flip the image we have
+        if ($rotate) {
+            $this->_data = imagerotate($this->_data, $rotate, 0);
+        }
+        if ($flip) {
+            $width = imagesx($this->_data);
+            $height = imagesy($this->_data);
+
+            $tmp = imagecreatetruecolor($width, $height);
+            imagesavealpha($tmp, true);
+            imagefill($tmp, 0, 0, IMG_COLOR_TRANSPARENT);
+            imagecopyresampled(
+                $tmp, $this->_data, 
+                0, 0, $width - 1, 0, 
+                $width, $height, -$width, $height
+            );
+            imagedestroy($this->_data);
+            $this->_data = $tmp;
+        }
     }
 
     /**
