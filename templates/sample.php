@@ -14,8 +14,8 @@
 <?php for ($i = 1; $i <= 8; $i++): ?>
         <figure alt="The Creative Difference (Orientation: <?php echo $i; ?>)">
             <figcaption>JPG image (orientation <?php echo $i; ?>)</figcaption>
-            <img src="crop/thedifference_<?php echo $i; ?>.jpg" alt="" />
-            <img src="thumb/thedifference_<?php echo $i; ?>.jpg" alt="" />
+            <img src="crop/thedifference_<?php echo $i; ?>.jpg/200/200" alt="" />
+            <img src="thumb/thedifference_<?php echo $i; ?>.jpg/353/353" alt="" />
         </figure>
 <?php endfor; ?>
 	</body>
