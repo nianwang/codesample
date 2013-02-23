@@ -3,14 +3,15 @@
 	<head>
         <meta charset="utf-8">
 		<title>Sample Code</title>
-        <meta name="description" content="Sample code">
+        <meta name="description" content="Code Sample for Nian Wang">
 		<link rel="stylesheet" href="css/base.css" type="text/css" />
 		<link rel="stylesheet" href="css/sample.css" type="text/css" />
 	</head>
 	<body>
-        <h1>Code Sample</h1>
+        <h1>Code Sample for Nian</h1>
 
-        <p>Use of Slim micro-framework, Composer, autoloading, namespaces, image manipulation, and other goodies.</p>
+        <p>Example of Slim micro-framework/routing, Composer/autoloading/namespaces, image manipulation, error handling,
+        and other goodies.</p>
 
         <figure alt="The Creative Difference (original)">
             <figcaption>Original PNG image</figcaption>
