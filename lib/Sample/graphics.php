@@ -36,7 +36,7 @@ class Graphics
      * @param int $width  Image width
      * @param int $height Image height
      *
-     * @return Image data
+     * @return Image data; null, otherwise
      */
     public function crop($width, $height) 
     {
@@ -73,7 +73,7 @@ class Graphics
      * @param int $width  Image width
      * @param int $height Image height
      *
-     * @return Image data
+     * @return Image data; null, otherwise
      */
     public function thumb($width, $height) 
     {
