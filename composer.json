@@ -3,7 +3,11 @@
     "description": "A code sample",
     "license": "GPL-3.0+",
     "require": {
-        "slim/slim": "2.*"
+        "slim/slim": "2.*",
+        "ext-gd": "*"
+    },
+    "suggest": {
+        "ext-exif": "Enabling the EXIF extension enables to orient images"
     },
     "autoload": {
         "psr-0": { "Sample": "lib/" }
