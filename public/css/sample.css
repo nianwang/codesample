@@ -26,3 +26,5 @@ code{background:#eee}
 .header p{margin:0}
 .footer{font-size:0.9em;border-top:3px solid #ccc}
 @media screen and (max-width:960px){body{min-width:320px;width:90%}}
+
+figcaption:after { content: ':'; }

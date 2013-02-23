@@ -1,6 +1,6 @@
 {
-    "name": "nian/example",
-    "description": "A code sample from Nian Wang",
+    "name": "nianwang/codesample",
+    "description": "A code sample",
     "license": "GPL-3.0+",
     "require": {
         "slim/slim": "2.*"

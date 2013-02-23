@@ -2,8 +2,6 @@
 
 /**
  * Graphics utility functions to properly rotate images.
- *
- * @author Nian Wang <nian@nian.net>
  */
 
 namespace Sample;
