@@ -7,16 +7,31 @@
 require_once '../vendor/autoload.php';
 
 $app = new \Slim\Slim(
-    array(
+    [
         'templates.path' => '../templates',
         'debug' => true,
-    )
+    ]
 );
 
 $app->get(
     '/', 
     function () use ($app) {
-        echo $app->render('sample.php');
+        // generate list of images
+        $images = [];
+        for ($i = 1; $i <= 8; $i++) {
+            $images[$i] = [
+                'id' => $i,
+                'orientation' => $i,
+                'thumb_uri' => "thumb/thedifference_{$i}.jpg/353/353", 
+                'crop_uri' => "crop/thedifference_{$i}.jpg", 
+            ];
+        }
+
+        // render output
+        $data = [
+            'images' => $images,
+        ];
+        echo $app->render('sample.php', $data);
     }
 );
 

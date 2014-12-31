@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
         <meta charset="utf-8">
-		<title>Sample Code</title>
+		<title>Sample Code for Nian</title>
         <meta name="description" content="Code Sample for Nian Wang">
 		<link rel="stylesheet" href="css/base.css" type="text/css" />
 		<link rel="stylesheet" href="css/sample.css" type="text/css" />
@@ -19,14 +19,14 @@
             <img src="images/thedifference.png" alt="" />
         </figure>
 
-<?php for ($i = 1; $i <= 8; $i++): ?>
-        <figure alt="The Creative Difference (Orientation: <?php echo $i; ?>)">
-            <figcaption>JPG image (orientation <?php echo $i; ?>)</figcaption>
-            <img src="thumb/thedifference_<?php echo $i; ?>.jpg/353/353" alt="" />
-            <img src="crop/thedifference_<?php echo $i; ?>.jpg" alt="" />
+<?php foreach ($images as $image): ?>
+        <figure alt="The Creative Difference (Orientation: <?= $image['orientation']; ?>)">
+            <figcaption>JPG image (orientation <?= $image['orientation']; ?>)</figcaption>
+            <img src="<?= $image['thumb_uri']; ?>" alt="" />
+            <img src="<?= $image['crop_uri']; ?>" alt="" />
         </figure>
-<?php endfor; ?>
+<?php endforeach; ?>
 
-        <footer><small>&copy; 2013, Nian Wang</small></footer>
+        <footer><small>&copy; 2013-<?= date('Y'); ?>, Nian Wang</small></footer>
 	</body>
 </html>
