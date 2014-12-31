@@ -1,6 +1,11 @@
 {
     "name": "nianwang/codesample",
-    "description": "A code sample",
+    "description": "Code Samples for Nian Wang",
+    "authors": [
+        {
+            "name": "Nian Wang"
+        }
+    ],
     "license": "GPL-3.0+",
     "require": {
         "slim/slim": "2.*",
