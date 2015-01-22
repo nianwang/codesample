@@ -2,6 +2,8 @@
 
 Code Samples for Nian Wang
 
+Example of Slim micro-framework/routing, Composer/autoloading/namespaces, image manipulation, error handling, and other goodies.
+
 # Requirements #
 
 Refer to composer.json for PHP requirements
