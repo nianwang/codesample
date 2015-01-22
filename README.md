@@ -14,7 +14,7 @@ Refer to composer.json for PHP requirements
 
 1. Install requirements:
 
-        brew install composer php55-mcrypt php55-xdebug
+        brew install composer php55-mcrypt
 
 2. Initialize codebase:
 
