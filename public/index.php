@@ -6,6 +6,7 @@
 
 require_once '../vendor/autoload.php';
 
+// Initialization our app
 $app = new \Slim\Slim(
     [
         'templates.path' => '../templates',
@@ -13,6 +14,7 @@ $app = new \Slim\Slim(
     ]
 );
 
+// Basic URL handler
 $app->get(
     '/', 
     function () use ($app) {
@@ -27,14 +29,15 @@ $app->get(
             ];
         }
 
-        // render output
         $data = [
             'images' => $images,
         ];
+        // render output to template
         echo $app->render('sample.php', $data);
     }
 );
 
+// Image crop handler
 $app->get(
     '/crop/:image(/:width/:height)', 
     function ($image, $width = 200, $height = 200) use ($app) {
@@ -51,6 +54,7 @@ $app->get(
     }
 );
 
+// Image thumbnail handler
 $app->get(
     '/thumb/:image(/:width/:height)', 
     function ($image, $width = 200, $height = 200) use ($app) {
